@@ -333,11 +333,7 @@ resource "aws_appautoscaling_target" "this" {
 
   tags = var.tags
 
-  lifecycle {
-    ignore_changes = [
-      tags_all,
-    ]
-  }
+  # automatiq fork: no ignore_changes on tags_all (upstream has one), so tag changes reach TagResource.
 }
 
 resource "aws_appautoscaling_policy" "this" {
